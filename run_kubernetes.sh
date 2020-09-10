@@ -17,3 +17,7 @@ kubectl get pods
 # Step 4:
 # Forward the container port to a host
 kubectl port-forward deployments/udacityproj4-ml 8000:80
+
+#Logs
+export POD_NAME=$(kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')
+kubectl logs $POD_NAME
